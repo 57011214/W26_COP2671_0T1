@@ -2,21 +2,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public GameObject orb;
     public float speed = 5f;
     public float turnSpeed = 50f;
 
     private float horizontalInput;
     private float forwardInput;
 
+   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // Move up continuously
+            transform.Translate(Vector3.down * turnSpeed * Time.deltaTime);
+        }
+        if(Input.GetKey(KeyCode.Space)) {
+            transform.Translate(Vector3.up * turnSpeed * Time.deltaTime);
+        }
     }
 
     void LateUpdate() {
@@ -26,4 +37,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
     }
+
+    
+
 }

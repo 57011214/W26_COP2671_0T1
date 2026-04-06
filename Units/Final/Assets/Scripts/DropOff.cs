@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class MeteorScript : MonoBehaviour
+public class DropOff : MonoBehaviour
 {
+    public Orb orbScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +13,11 @@ public class MeteorScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "Player") {
+            Debug.Log("You Win!");
+        }
     }
 }
