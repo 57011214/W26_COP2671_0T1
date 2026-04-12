@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject orb;
     public float speed = 5f;
     public float turnSpeed = 50f;
 

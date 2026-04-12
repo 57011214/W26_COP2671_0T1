@@ -125,8 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4383c2fedcef73c48a7f0a746842142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorController
-  randomXRange: 70
-  randomYRange: 30
-  randomZRange: 70
+  meteorCrash: {fileID: 8300000, guid: 6f65767f7775946449c17a3c574f9352, type: 3}
   moveSpeed: 3
   changeDirectionTime: 3

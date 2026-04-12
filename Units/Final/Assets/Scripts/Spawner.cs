@@ -1,18 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject meteor;
-    public float randomXRange = 70;
-    public float randomYRange = 65;
-    public float randomZRange = 70;
-
+    public float xMin = -100;
+    public float xMax = 80;
+    public float yMin = -35;
+    public float yMax = 38;
+    public float zMin = -100;
+    public float zMax = 100;
     public int meteorCount;
-    public int spawnRate;
+    public bool gameActive = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SpawnMeteors();
+        StartCoroutine(Spawn());
     }
 
     // Update is called once per frame
@@ -22,18 +26,39 @@ public class Spawner : MonoBehaviour
     }
 
     void SpawnMeteors() {
-        for (int i = 0; i < spawnRate; i++) {
-            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+        for (int i = 0; i < 2750; i++) {
+            Instantiate(meteor, FirstSpawn(), Quaternion.Euler(meteor.transform.position));
         }
+    }
+    private Vector3 FirstSpawn() {
+        float x = Random.Range(xMin, xMax);
+        float y = Random.Range(yMin, yMax);
+        float z = Random.Range(zMin, zMax);
+
+        Vector3 randomPos = new Vector3(x, y, z);
+
+        return randomPos;
     }
     private Vector3 GenerateSpawnPosition() 
     {
-        float spawnPosX = Random.Range(-randomXRange, randomXRange);
-        float spawnPosY = Random.Range(0, randomYRange);
-        float spawnPosZ = Random.Range(-randomZRange, randomZRange);
+        float x = -100;
+        float y = Random.Range(yMin, yMax);
+        float z = Random.Range(zMin, zMax);
 
-        Vector3 randomPos = new Vector3(spawnPosX, spawnPosY, spawnPosZ);
+        Vector3 randomPos = new Vector3(x, y, z);
 
         return randomPos;
+    }
+
+    IEnumerator Spawn() {
+        while(gameActive) {
+            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+            Instantiate(meteor, GenerateSpawnPosition(), Quaternion.Euler(meteor.transform.position));
+
+            yield return null;
+        }
     }
 }
