@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
 public class MeteorController : MonoBehaviour
 {
     public AudioClip meteorCrash;
@@ -29,7 +30,7 @@ public class MeteorController : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             AudioSource.PlayClipAtPoint(meteorCrash, transform.position);
             Destroy(gameObject);
-            Debug.Log("You Lose!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
 }
