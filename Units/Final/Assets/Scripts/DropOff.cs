@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DropOff : MonoBehaviour
 {
@@ -19,7 +21,7 @@ public class DropOff : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Player") {
             source.Play();
-            Debug.Log("You Win!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
 }

@@ -30,7 +30,7 @@ public class MeteorController : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             AudioSource.PlayClipAtPoint(meteorCrash, transform.position);
             Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

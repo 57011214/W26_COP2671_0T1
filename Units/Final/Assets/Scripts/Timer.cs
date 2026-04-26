@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
         UpdateText();
         if(timeLeft < 0) {
             timeLeft = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

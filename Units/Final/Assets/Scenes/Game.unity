@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4b51d00809c184d8690e970ba59e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  timeLeft: 20
+  timeLeft: 180
   timerText: {fileID: 1548006224}
 --- !u!1 &1575830855
 GameObject:
