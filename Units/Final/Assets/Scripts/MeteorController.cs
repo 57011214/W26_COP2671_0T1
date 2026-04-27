@@ -6,7 +6,6 @@ public class MeteorController : MonoBehaviour
     public AudioClip meteorCrash;
 
     public float moveSpeed = 3f;
-    public float changeDirectionTime = 3f;
 
     private Vector3 targetPosition;
     private float timer;
